@@ -1,0 +1,23 @@
+
+/*!
+ * apms-frontend
+ * Copyright(c) 2019 chiffathefox <den.9896@gmail.com>
+ * MIT Licenced
+ */
+
+
+@import "config";
+@import "mixins";
+
+
+.front-page {
+    padding: 20px;
+    background-image: linear-gradient(to bottom,
+        $m-front-lg-start, $m-bg-color);
+
+
+    .sitename {
+        text-align: center;
+        font-size: map-get($m-font, "size") * 3;
+    }
+}

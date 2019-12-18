@@ -1,0 +1,37 @@
+
+/*!
+ * apms-frontend
+ * Copyright(c) 2019 chiffathefox <den.9896@gmail.com>
+ * MIT Licenced
+ */
+
+
+/* Common parameters. */
+
+/**
+ * Text color used throughout the pages.
+ *
+ * @type {color}
+ * @const
+ */
+
+$m-font-color: #000;
+
+$m-font: (
+    size: 14px,
+    family: sans-serif
+);
+
+/**
+ * Page background color.
+ *
+ * @type {color}
+ * @const
+ */
+
+$m-bg-color: #ddd9f4;
+
+
+/* Front page parameters. */
+
+$m-front-lg-start: lighten($m-bg-color, 5%);

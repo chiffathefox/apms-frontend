@@ -1,0 +1,32 @@
+
+/*!
+ * apms-frontend
+ * Copyright(c) 2019 chiffathefox <den.9896@gmail.com>
+ * MIT Licenced
+ */
+
+
+@import "config";
+
+
+body {
+    color: $m-font-color;
+
+    @each $property, $value in $m-font {
+        font-#{$property}: $value;
+    }
+
+    background-color: $m-bg-color;
+
+    margin: 0;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+
+.center {
+    margin: 0 auto;
+}

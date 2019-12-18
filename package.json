@@ -1,0 +1,46 @@
+{
+  "name": "apms-frontend",
+  "version": "0.0.1",
+  "description": "APMS Frontend.",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Not implemented' && exit 1",
+    "build-dev": "webpack --mode development",
+    "start-dev": "webpack-dev-server --progress --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiffathefox/apms-frontend.git"
+  },
+  "author": "chiffathefox",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-flow": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.0",
+    "eslint": "^6.7.2",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-flowtype": "^4.5.2",
+    "eslint-plugin-react": "^7.17.0",
+    "flow-bin": "^0.114.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.2",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
