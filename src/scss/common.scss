@@ -16,8 +16,6 @@ body {
         font-#{$property}: $value;
     }
 
-    background-color: $m-bg-color;
-
     margin: 0;
 }
 
@@ -29,4 +27,34 @@ h1 {
 
 .center {
     margin: 0 auto;
+}
+
+
+.main {
+    width: 100%;
+    background-color: $m-page-bg-color;
+    padding: 1rem;
+}
+
+
+.footer {
+    width: 100%;
+    padding: 1.5rem;
+
+    .col {
+        max-width: 12rem;
+    }
+
+    .nav .nav-item {
+        &.nav-header {
+            color: $m-footer-title-color;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            margin-bottom: .5rem;
+        }
+
+        .nav-link {
+            padding: 0.1rem 0;
+        }
+    }
 }

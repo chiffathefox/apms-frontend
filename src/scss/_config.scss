@@ -23,7 +23,7 @@ $m-font: (
 );
 
 /**
- * Page background color.
+ * Body background color.
  *
  * @type {color}
  * @const
@@ -32,6 +32,26 @@ $m-font: (
 $m-bg-color: #ddd9f4;
 
 
+/**
+ * Page background color.
+ *
+ * @type {color}
+ * @const
+ */
+
+$m-page-bg-color: #fff;
+
+
 /* Front page parameters. */
 
 $m-front-lg-start: lighten($m-bg-color, 5%);
+
+
+/* Bootstrap customization. */
+
+$body-bg:                           $m-bg-color;
+$jumbotron-bg:                      #fff;
+
+@import "~bootstrap/scss/bootstrap";
+
+$m-footer-title-color: darken($primary, 2%);

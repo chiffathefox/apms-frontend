@@ -29,6 +29,7 @@ module.exports = {
             /* XXX: don't forget to update `.flowconfig` */
 
             Config: path.resolve(__dirname, "src/config.js"),
+            Lang: path.resolve(__dirname, "src/lang.js"),
             Components: path.resolve(__dirname, "src/components"),
             Containers: path.resolve(__dirname, "src/containers"),
             Scss: path.resolve(__dirname, "src/scss")
@@ -72,6 +73,13 @@ module.exports = {
                             sourceMap: true
                         }
                     }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader",
+                    "css-loader"
                 ]
             }
         ]

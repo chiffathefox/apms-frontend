@@ -13,17 +13,13 @@
 
 import * as React from "react";
 
-import { sitename } from "Config";
-import "Scss/common.scss";
-import "Scss/front-page.scss";
+import WelcomeMessage from "Containers/welcome-message";
 
 
-export default class FrontPage extends React.Component {
+export default class FrontPageContent extends React.PureComponent<any> {
     render() {
         return (
-            <div className="front-page">
-
-            </div>
+            <WelcomeMessage />
         );
     }
 }

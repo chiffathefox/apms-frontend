@@ -15,6 +15,7 @@ module.file_ext=.json
 
 module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/src/stubs/sass-loader'
 module.name_mapper='Config' -> '<PROJECT_ROOT>/src/config.js'
+module.name_mapper='Lang' -> '<PROJECT_ROOT>/src/lang.js'
 module.name_mapper='Components' -> '<PROJECT_ROOT>/src/components'
 module.name_mapper='Containers' -> '<PROJECT_ROOT>/src/containers'
 

@@ -7,17 +7,20 @@
 
 
 @import "config";
-@import "mixins";
 
 
-.front-page {
-    padding: 20px;
+.navbar {
     background-image: linear-gradient(to bottom,
         $m-front-lg-start, $m-bg-color);
 
+    .navbar-brand {
+        height: 3rem;
 
-    .sitename {
-        text-align: center;
-        font-size: map-get($m-font, "size") * 3;
+        img {
+            height: 100%;
+            display: inline-block;
+            height: 100%;
+            margin-right: .5em;
+        }
     }
 }
