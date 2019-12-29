@@ -15,8 +15,8 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { SITENAME, type PageName, pages } from "Config";
-import { tr } from "Lang";
+import { SITENAME, type PageName, pages } from "../config";
+import { tr } from "../lang";
 
 
 export type Props = {

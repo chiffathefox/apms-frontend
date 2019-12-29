@@ -13,11 +13,11 @@
 
 import React from "react";
 
-import PageHeader from "Components/page-header";
-import PageFooter from "Components/page-footer";
-import FrontPageContent from "Components/front-page-content";
+import PageHeader from "./PageHeader";
+import PageFooter from "./PageFooter";
+import FrontPageContent from "./FrontPageContent";
 import "bootstrap";
-import "Scss/common.scss";
+import "../scss/common.scss";
 
 
 export default function App() {

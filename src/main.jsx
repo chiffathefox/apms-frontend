@@ -14,12 +14,12 @@
 import React from "react";
 import { render } from "react-dom";
 
-import App from "Components/app";
+import App from "./components/App";
 
 
 const rootEl = document.getElementById("root");
 
-if (rootEl != null) {
+if (rootEl !== null) {
     render(<App />, rootEl);
 } else {
     /* TODO: report a fatal error. */

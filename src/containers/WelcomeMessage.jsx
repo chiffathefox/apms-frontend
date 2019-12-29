@@ -13,7 +13,7 @@
 
 import * as React from "react";
 
-import WelcomeJumbotron from "Components/welcome-jumbotron";
+import WelcomeJumbotron from "../components/WelcomeJumbotron";
 
 
 export type State = {

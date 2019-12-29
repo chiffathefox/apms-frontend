@@ -13,7 +13,7 @@
 
 import React from "react";
 
-import WelcomeMessage from "Containers/welcome-message";
+import WelcomeMessage from "../containers/WelcomeMessage";
 
 
 function FrontPageContent() {

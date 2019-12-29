@@ -14,7 +14,7 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 
-import "Scss/common.scss";
+import "../scss/common.scss";
 
 
 export type Props = {

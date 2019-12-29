@@ -13,8 +13,7 @@
 
 import React from "react";
 
-import FooterCol from "Components/footer-col";
-import "Scss/common.scss";
+import FooterCol from "./FooterCol";
 
 
 function PageFooter() {

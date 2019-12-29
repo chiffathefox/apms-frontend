@@ -11,7 +11,7 @@
 "use strict";
 
 
-import { pages } from "Config";
+import { pages } from "./config";
 
 
 const lang = {
