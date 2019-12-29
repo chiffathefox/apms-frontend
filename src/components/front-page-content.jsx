@@ -11,15 +11,15 @@
 "use strict";
 
 
-import * as React from "react";
+import React from "react";
 
 import WelcomeMessage from "Containers/welcome-message";
 
 
-export default class FrontPageContent extends React.PureComponent<any> {
-    render() {
-        return (
-            <WelcomeMessage />
-        );
-    }
+function FrontPageContent() {
+    return <WelcomeMessage />;
 }
+
+
+export default React.memo<any>(FrontPageContent);
+

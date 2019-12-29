@@ -59,7 +59,16 @@
             "props": "never", 
             "children": "ignore"
         }],
-        "react/self-closing-comp": ["warn"]
+        "react/self-closing-comp": ["warn"],
+        "react/forbid-component-props": ["warn", {
+            "forbid": [
+                "style",
+                {
+                    "propName": "className",
+                    "allowedFor": ["Nav"]
+                }
+            ]
+        }]
     },
     "settings": {
         "react": {

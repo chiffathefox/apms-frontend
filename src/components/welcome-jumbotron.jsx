@@ -11,13 +11,12 @@
 "use strict";
 
 
-import * as React from "react";
-
-import * as Button from "Components/button";
+import React from "react";
+import Button from "react-bootstrap/Button";
 
 
 export type Props = {
-    +onCloseClick?: Button.ClickHandler,
+    +onCloseClick?: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 function WelcomeJumbotron(props: Props) {
@@ -36,13 +35,12 @@ function WelcomeJumbotron(props: Props) {
                         "air pressure and temperature sensors to " +
                         "determine air quality level"}
             </p>
-            <Button.default
+            <Button
                 onClick={props.onCloseClick}
-                primary
-                type="large"
+                size="lg"
             >
                 {"Got it!"}
-            </Button.default>
+            </Button>
         </div>
     );
 }

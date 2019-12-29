@@ -11,45 +11,36 @@
 "use strict";
 
 
-import * as React from "react";
+import React from "react";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 import { SITENAME, type PageName, pages } from "Config";
 import { tr } from "Lang";
-import "Scss/page-header.scss";
 
 
 export type Props = {
     +selected: PageName
 };
 
+
 function PageHeader(props: Props) {
-    const navPages = Object.keys(pages).map((key) => {
-        let className = "nav-item nav-link";
-
-        if (key === props.selected) {
-            className += " active";
-        }
-
-        return (
-            <a 
-                className={className}
-                href={pages[key].url}
-                key={key}
-            >
-                {tr(key, "page")}
-                <span className="sr-only">
-                    {"(current)"}
-                </span>
-            </a>
-        );
-    });
+    const navPages = Object.keys(pages).map((key) => (
+        <Nav.Link
+            eventKey={key}
+            href={pages[key].url}
+            key={key}
+        >
+            {tr(key, "page")}
+        </Nav.Link>
+    ));
 
     return (
-        <div className="navbar navbar-expand-lg navbar-light">
-            <a 
-                className="navbar-brand" 
-                href="/"
-            >
+        <Navbar
+            bg="light"
+            expand="lg"
+        >
+            <Navbar.Brand href="/">
                 <img
                     alt={SITENAME}
                     src="img/logo.png"
@@ -57,29 +48,16 @@ function PageHeader(props: Props) {
                 />
 
                 {SITENAME}
-            </a>
+            </Navbar.Brand>
 
-            <button 
-                aria-controls="navbar-markup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                className="navbar-toggler"
-                data-target="#navbar-markup"
-                data-toggle="collapse"
-                type="button"
-            >
-                <span className="navbar-toggler-icon" />
-            </button>
+            <Navbar.Toggle aria-controls="header-navbar-nav" />
 
-            <div
-                className="collapse navbar-collapse"
-                id="navbar-markup"
-            >
-                <div className="navbar-nav">
+            <Navbar.Collapse id="header-navbar-nav">
+                <Nav activeKey={props.selected}>
                     {navPages}
-                </div>
-            </div>
-        </div>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 }
 

@@ -11,38 +11,35 @@
 "use strict";
 
 
-import * as React from "react";
+import React from "react";
+import Nav from "react-bootstrap/Nav";
 
 import "Scss/common.scss";
+
 
 export type Props = {
     +title: string,
     +items: [string, string],
 };
 
+
 function FooterCol(props: Props) {
-    const els = props.items.map(item => (
-        <li 
-            className="nav-item"
-            key={item[0]}
-        >
-            <a
-                className="nav-link"
-                href={item[1]}
-            >
+    const navItems = props.items.map(item => (
+        <Nav.Item key={item[0]}>
+            <Nav.Link href={item[1]}>
                 {item[0]}
-            </a>
-        </li>
+            </Nav.Link>
+        </Nav.Item>
     ));
 
     return (
-        <ul className="col nav flex-column">
-            <li className="nav-item nav-header">
+        <Nav className="col flex-column">
+            <Nav.Item>
                 {props.title}
-            </li>
+            </Nav.Item>
 
-            {els}
-        </ul>
+            {navItems}
+        </Nav>
     );
 }
 

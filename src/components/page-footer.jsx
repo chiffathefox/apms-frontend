@@ -11,7 +11,7 @@
 "use strict";
 
 
-import * as React from "react";
+import React from "react";
 
 import FooterCol from "Components/footer-col";
 import "Scss/common.scss";

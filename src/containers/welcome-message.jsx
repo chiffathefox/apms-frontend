@@ -16,7 +16,12 @@ import * as React from "react";
 import WelcomeJumbotron from "Components/welcome-jumbotron";
 
 
-export default class WelcomeMessage extends React.PureComponent<any> {
+export type State = {
+    closed: boolean
+};
+
+
+export default class WelcomeMessage extends React.PureComponent<any, State> {
     state = {
         closed: !!localStorage.getItem(WelcomeMessage.CLOSED_STORAGE_KEY)
     };
