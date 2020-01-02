@@ -17,10 +17,11 @@ import Button from "react-bootstrap/Button";
 
 export type Props = {
     +onCloseClick?: (event: SyntheticEvent<HTMLButtonElement>) => void,
+    +visible: boolean,
 };
 
 function WelcomeJumbotron(props: Props) {
-    return (
+    return props.visible ? (
         <div className="jumbotron text-center">
             <h1 className="display-4">
                 {"Realtime Air Pollution Monitoring"}
@@ -42,8 +43,9 @@ function WelcomeJumbotron(props: Props) {
                 {"Got it!"}
             </Button>
         </div>
-    );
+    ) : null;
 }
 
 
 export default React.memo<Props>(WelcomeJumbotron);
+

@@ -29,3 +29,6 @@ export const pages: Pages = {
 };
 
 export type PageName = $Keys<typeof pages>;
+
+export const STORAGE_UPDATE_MS = 1000;
+

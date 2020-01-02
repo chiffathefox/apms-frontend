@@ -11,35 +11,20 @@
 "use strict";
 
 
-import * as React from "react";
+import { connect } from "react-redux";
 
 import WelcomeJumbotron from "../components/WelcomeJumbotron";
+import { closeWelcomeMessage } from "../actions";
 
 
-export type State = {
-    closed: boolean
-};
+const mapStateToProps = (state) => ({
+    visible: !state.welcomeMessage.isClosed
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onCloseClick: () => dispatch(closeWelcomeMessage())
+});
 
 
-export default class WelcomeMessage extends React.PureComponent<any, State> {
-    state = {
-        closed: !!localStorage.getItem(WelcomeMessage.CLOSED_STORAGE_KEY)
-    };
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomeJumbotron);
 
-
-    static CLOSED_STORAGE_KEY = "welcomeMessageClosed";
-
-
-    handleCloseClick = () => {
-        const closed = true;
-
-        this.setState({closed});
-        localStorage.setItem(WelcomeMessage.CLOSED_STORAGE_KEY, closed);
-    }
-
-
-    render() {
-        return !this.state.closed && 
-            <WelcomeJumbotron onCloseClick={this.handleCloseClick} />;
-    }
-}
