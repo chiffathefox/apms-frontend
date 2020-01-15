@@ -14,6 +14,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import { Map, TileLayer, Circle } from "react-leaflet";
 import type { LeafletLatLng, LeafletLatLngBounds } from "leaflet";
+import type { Map as MapType } from "react-leaflet";
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 import { caqiHslStr, linearGradient } from "../aqi-tools";
@@ -55,11 +56,13 @@ const PollutionMap = (props: Props) => {
 
     const gradient = useMemo(() => linearGradient(), []);
 
-    const mapRef = useCallback(comp => {
-        const map = comp.leafletElement;
+    const mapRef = useCallback((comp: MapType | null) => {
+        if (comp !== null) {
+            const map = comp.leafletElement;
 
-        onBoundsChange(map.getBounds());
-        onLocChange(map.getCenter());
+            onBoundsChange(map.getBounds());
+            onLocChange(map.getCenter());
+        }
     }, [ onBoundsChange, onLocChange ]);
 
     const circles = props.dataPoints.map(

@@ -15,7 +15,8 @@ import type { LeafletLatLng, LeafletLatLngBounds } from "leaflet";
 
 
 export type AQIPoint = {
-    loc: LeafletLatLng,
+    lat: number,
+    lng: number,
     aqi: number,
     pressure: number,
     temp: number,

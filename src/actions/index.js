@@ -65,6 +65,8 @@ export const receiveAQI = (json: AQIResponse, bounds: LeafletLatLngBounds) => ({
 export type ReceiveAQI = Action & {
     dataPoints: Array<AQIPoint>,
     summary: AQISummary,
+    northEast: LeafletLatLng,
+    southWest: LeafletLatLng,
 };
 
 
