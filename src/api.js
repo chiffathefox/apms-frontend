@@ -11,7 +11,7 @@
 "use strict";
 
 
-import type { LeafletLatLng, LeafletLatLngBounds } from "leaflet";
+import type { LeafletLatLngBounds } from "leaflet";
 
 
 export type AQIPoint = {
