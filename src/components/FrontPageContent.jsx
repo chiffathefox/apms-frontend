@@ -14,10 +14,19 @@
 import React from "react";
 
 import WelcomeMessage from "../containers/WelcomeMessage";
+import MainPollutionMap from "../containers/MainPollutionMap";
 
 
 function FrontPageContent() {
-    return <WelcomeMessage />;
+    return (
+        <>
+            <WelcomeMessage />
+
+            <div className="row">
+                <MainPollutionMap />
+            </div>
+        </>
+    );
 }
 
 

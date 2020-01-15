@@ -14,6 +14,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { createStore, applyMiddleware } from "redux";
+import thunkMiddleware from "redux-thunk";
 import { Provider } from "react-redux";
 
 import App from "./components/App";
@@ -31,7 +32,6 @@ function scheduleSaveState(getState) {
     }
 
     setTimeout(() => {
-        console.log(Date.now(), "updating persistent state ...");
         localStorage.setItem(STATE_KEY, JSON.stringify(getState()));
         timeoutId = null;
     }, STORAGE_UPDATE_MS);
@@ -42,7 +42,6 @@ function saveState({ getState }) {
     return next => action => {
         const ret = next(action);
 
-        console.log(Date.now(), "middleware call", action);
         scheduleSaveState(getState);
 
         return ret;
@@ -62,8 +61,10 @@ try {
     console.error("Invalid app state in local storage:", e);
 }
 
+console.dir("preloadedState =", preloadedState);
+
 const store = createStore(rootReducer, preloadedState,
-    applyMiddleware(saveState));
+    applyMiddleware(thunkMiddleware, saveState));
 
 const rootEl = document.getElementById("root");
 

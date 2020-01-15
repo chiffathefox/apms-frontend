@@ -75,3 +75,29 @@ h1 {
         }
     }
 }
+
+
+.leaflet-container {
+    width: 600px;
+    height: 600px;
+}
+
+
+.aqi-gradient {
+    width: 1rem;
+    margin-left: 0.5rem;
+}
+
+
+.aqi-gradient-legend {
+    p {
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+    }
+
+    p:first-child {
+        top: 0;
+        bottom: auto;
+    }
+}

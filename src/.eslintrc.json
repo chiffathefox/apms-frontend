@@ -1,6 +1,7 @@
 {
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "extends": [
         "eslint:recommended",
@@ -16,8 +17,10 @@
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
-    "plugins": [ "react",
-        "flowtype"
+    "plugins": [
+        "react",
+        "flowtype",
+        "react-hooks"
     ],
     "rules": {
         "indent": [
@@ -65,10 +68,17 @@
                 "style",
                 {
                     "propName": "className",
-                    "allowedFor": ["Nav"]
+                    "allowedFor": [
+                        "Nav", "Map"
+                    ]
                 }
             ]
-        }]
+        }],
+        "react/jsx-one-expression-per-line": "warn",
+        "react/jsx-no-literals": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-closing-bracket-location": "warn"
     },
     "settings": {
         "react": {
