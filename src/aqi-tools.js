@@ -16,20 +16,23 @@ import IntervalTree from "node-interval-tree";
 
 
 const caqiColorTree = new IntervalTree();
+const caqiTextTree = new IntervalTree();
 const aqiIntervals = [
-    [   0,  25, [ 109,  44,  74 ], [  69,  63,  81 ] ],
-    [  26,  50, [  69,  63,  81 ], [  48,  95,  93 ] ],
-    [  51,  75, [  48,  95,  93 ], [  36,  98,  95 ] ],
-    [  75, 100, [  36,  98,  95 ], [ 350, 100,  59 ] ],
-    [ 100, +Infinity, [ 350, 100,  59 ], [ 350, 100,  59 ] ],
+    [   0,  25, [ 109,  44,  74 ], [  69,  63,  81 ], "Very low" ],
+    [  26,  50, [  69,  63,  81 ], [  48,  95,  93 ], "Low" ],
+    [  51,  75, [  48,  95,  93 ], [  36,  98,  95 ], "Medium" ],
+    [  75, 100, [  36,  98,  95 ], [ 350, 100,  59 ], "High" ],
+    [ 100, +Infinity, [ 350, 100,  59 ], [ 350, 100,  59 ], "Very high" ],
 ];
 
 
 aqiIntervals.forEach(interval => {
-    const [ low, high, lowRemap, highRemap ] = interval;
+    const [ low, high, lowRemap, highRemap, text ] = interval;
 
     caqiColorTree.insert(low, high, value => lowRemap.map((lr, i) => 
         (highRemap[i] - lr) * (value - low) / (high - low) + lr));
+
+    caqiTextTree.insert(low, high, text);
 });
 
 
@@ -65,5 +68,10 @@ export function linearGradient() {
         end,
         css: `linear-gradient(${points.reverse().join(", ")})`,
     };
+}
+
+
+export function caqiText(aqi: number) {
+    return caqiTextTree.search(aqi, aqi)[0];
 }
 

@@ -29,6 +29,8 @@ export type AQISummary = {
     aqi: number,
     pressure: number,
     temp: number,
+    humidity: number,
+    areaName: string,
 };
 
 

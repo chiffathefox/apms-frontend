@@ -15,6 +15,7 @@ import React from "react";
 
 import WelcomeMessage from "../containers/WelcomeMessage";
 import MainPollutionMap from "../containers/MainPollutionMap";
+import MainAreaSummary from "../containers/MainAreaSummary";
 
 
 function FrontPageContent() {
@@ -24,6 +25,7 @@ function FrontPageContent() {
 
             <div className="row">
                 <MainPollutionMap />
+                <MainAreaSummary />
             </div>
         </>
     );

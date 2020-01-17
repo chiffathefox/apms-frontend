@@ -33,7 +33,7 @@ h1 {
 .main {
     width: 100%;
     background-color: $m-page-bg-color;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 
@@ -78,8 +78,8 @@ h1 {
 
 
 .leaflet-container {
-    width: 600px;
-    height: 600px;
+    width: $m-map-width;
+    height: $m-map-height;
 }
 
 
@@ -99,5 +99,29 @@ h1 {
     p:first-child {
         top: 0;
         bottom: auto;
+    }
+}
+
+
+.aqi-summary {
+    text-align: center;
+    width: 28rem;
+    font-weight: bold;
+
+    span {
+        font-weight: normal;
+        font-size: $font-size-sm;
+        color: #ccc8c8;
+    }
+
+    .row {
+        .col {
+            font-size: $font-size-lg;
+            color: #9b8989;
+        }
+    }
+
+    .aqi-text {
+        font-size: $font-size-lg;
     }
 }
