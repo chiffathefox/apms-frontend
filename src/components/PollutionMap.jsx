@@ -109,10 +109,10 @@ const PollutionMap = (props: Props) => {
                 <p>
                     {gradient.end}
                     <br />
-                    {"HIGH"}
+                    {gradient.endText}
                 </p>
                 <p>
-                    {"LOW"}
+                    {gradient.startText}
                     <br />
                     {gradient.start}
                 </p>
