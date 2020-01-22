@@ -52,8 +52,6 @@ const aqiReceive = createSimpleReducer<ReceiveAQIState, ReceiveAQI>({
         lat < southWest.lat || lat > northEast.lat ||
         lng < southWest.lng || lng > northEast.lng).concat(action.dataPoints);
 
-    console.dir(action);
-
     return { 
         aqiDataPoints,
         lastAQISummary: action.summary,
