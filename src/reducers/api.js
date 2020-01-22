@@ -44,6 +44,7 @@ const aqiReceive = createSimpleReducer<ReceiveAQIState, ReceiveAQI>({
         aqi: 0,
         pressure: 0,
         temp: 0,
+        humidity: 0,
         areaName: "Unknown",
     },
 }, RECEIVE_AQI, (state, action) => {
@@ -51,8 +52,6 @@ const aqiReceive = createSimpleReducer<ReceiveAQIState, ReceiveAQI>({
     const aqiDataPoints = state.aqiDataPoints.filter(({ lat, lng }) =>
         lat < southWest.lat || lat > northEast.lat ||
         lng < southWest.lng || lng > northEast.lng).concat(action.dataPoints);
-
-    console.dir(action);
 
     return { 
         aqiDataPoints,

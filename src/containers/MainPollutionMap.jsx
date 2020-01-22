@@ -33,6 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
     onBoundsChange: compose(dispatch, updateMapBounds),
     onLocChange: compose(dispatch, updateMapLoc),
     onZoomChange: compose(dispatch, updateMapZoom),
+    onDataTimeout: compose(dispatch, updateMapBounds),
 });
 
 

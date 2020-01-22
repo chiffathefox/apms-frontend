@@ -53,7 +53,8 @@ export const caqiHslStr = compose(hsl, caqiHsl);
 
 export function linearGradient() {
     const start = aqiIntervals[0][0];
-    const end = aqiIntervals[aqiIntervals.length - 1][0];
+    const last = aqiIntervals.length - 1;
+    const end = aqiIntervals[last][0];
     const delta = end - start;
     const points = [];
 
@@ -65,7 +66,9 @@ export function linearGradient() {
 
     return {
         start,
+        startText: aqiIntervals[0][4],
         end,
+        endText: aqiIntervals[last][4],
         css: `linear-gradient(${points.reverse().join(", ")})`,
     };
 }

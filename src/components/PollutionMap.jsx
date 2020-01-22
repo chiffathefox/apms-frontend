@@ -11,13 +11,14 @@
 "use strict";
 
 
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useState, useMemo, useRef, useEffect } from "react";
 import { Map, TileLayer, Circle } from "react-leaflet";
 import type { LeafletLatLng, LeafletLatLngBounds } from "leaflet";
 import type { Map as MapType } from "react-leaflet";
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 import { caqiHslStr, linearGradient } from "../aqi-tools";
+import { AQI_UPDATE_MS } from "../config";
 
 
 export type DataPoint = {
@@ -36,12 +37,18 @@ export type Props = {
     +onBoundsChange: (bounds: LeafletLatLngBounds) => void,
     +onLocChange: (loc: LeafletLatLng) => void,
     +onZoomChange: (zoom: number) => void,
+    +onDataTimeout: (bounds: LeafletLatLngBounds) => void,
     +maxZoom?: number,
 };
 
 
 const PollutionMap = (props: Props) => {
-    const { onBoundsChange, onZoomChange, onLocChange } = props;
+    const { 
+        onBoundsChange,
+        onZoomChange,
+        onLocChange,
+        onDataTimeout,
+    } = props;
 
     const handleMoveEnd = useCallback(
         e => {
@@ -56,14 +63,26 @@ const PollutionMap = (props: Props) => {
 
     const gradient = useMemo(() => linearGradient(), []);
 
-    const mapRef = useCallback((comp: MapType | null) => {
-        if (comp !== null) {
-            const map = comp.leafletElement;
+    const mapRef = useRef<null | MapType>(null);
+
+    useEffect(() => {
+        if (mapRef.current !== null) {
+            const map = mapRef.current.leafletElement;
 
             onBoundsChange(map.getBounds());
             onLocChange(map.getCenter());
         }
     }, [ onBoundsChange, onLocChange ]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (mapRef.current !== null) {
+                onDataTimeout(mapRef.current.leafletElement.getBounds());
+            }
+        }, AQI_UPDATE_MS);
+
+        return () => clearInterval(interval);
+    }, [ onDataTimeout ]);
 
     const circles = props.dataPoints.map(
         ({ lat, lng, aqi, radius }) => (
@@ -109,10 +128,10 @@ const PollutionMap = (props: Props) => {
                 <p>
                     {gradient.end}
                     <br />
-                    {"HIGH"}
+                    {gradient.endText}
                 </p>
                 <p>
-                    {"LOW"}
+                    {gradient.startText}
                     <br />
                     {gradient.start}
                 </p>
