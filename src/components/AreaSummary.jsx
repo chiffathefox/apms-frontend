@@ -24,7 +24,7 @@ export type Props = {
 
 const summaryProcs = [
     [ "temp", "\u2103", Math.floor ],
-    [ "pressure", "mbar", value => Math.floor(value / 1000) ],
+    [ "pressure", "mbar", value => Math.floor(value / 100) ],
     [ "humidity", "%RH", Math.floor ],
     [ "aqi", "CAQI", value => value ],
 ];
