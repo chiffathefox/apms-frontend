@@ -44,6 +44,7 @@ const aqiReceive = createSimpleReducer<ReceiveAQIState, ReceiveAQI>({
         aqi: 0,
         pressure: 0,
         temp: 0,
+        humidity: 0,
         areaName: "Unknown",
     },
 }, RECEIVE_AQI, (state, action) => {
