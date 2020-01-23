@@ -54,7 +54,7 @@ const mapLoc = createSimpleReducer<LocState, UpdateMapLoc>({
 }, UPDATE_MAP_LOC);
 
 
-const mapZoom = createSimpleReducer<ZoomState, UpdateMapZoom>({ zoom: 12 },
+const mapZoom = createSimpleReducer<ZoomState, UpdateMapZoom>({ zoom: 14 },
     UPDATE_MAP_ZOOM);
 
 
